@@ -38,6 +38,7 @@ lib.Repository;
              }
          UIText.RevertHandler_AlreadyRevertedMessae);
          } catch (Exception e) {
+ /**
  if (newHead == null)
             throw new ExecutionException(CoreText.CherryPickOperation_Failed);
             throw new ExecutionException(UIText.RevertOperation_InternalError, e);
