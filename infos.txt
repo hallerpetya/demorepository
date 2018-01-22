@@ -1,1 +1,58 @@
+import org.eclipse.jegit.api.CherryPickCommand;
+ import org.eclipse.jgit.api.Gitui.internal.branch.BranchOperationUI;
+ import org.eclipse.egit.ui.internal.repository.tree.RepositoryTreeNode;
+ import org.eclipse.jgit.lib.Constants;
+ import org.eclipse.jgit.lib.Ref;
+ import org.eclipse.jgit.lib.Repository;
+ import org.eclipse.osgi.util.NLS;
+ 
+public Object execute(final ExecutionEvent event) throws ExecutionException {
+             cherryPick = git.cherryPick().include(commit.getId());
+             newHead = cherryPick.call();
+         } catch (Exception e) {
+            throw new ExecutionException(CoreText.CherryPickOperation_InternalError, e);
+            throw new ExecutionException(UIText.CherryPickOperation_InternalError, efinal Ref ref = (Ref) node.getObject();
+         Repository repo = node.getRepository();
+         String refName = ref.getLeaf().getName();
+         }
 
+         if (newHead == null)
+            throw new ExecutionException(CoreText.CherryPickfinal BranchOperation_Failed) op;
+            throw new ExecutionException(UIText.CherryPickfinal BranchOperation_Failed)UI op;
+         return null;
+if (!repository.getRepositoryState().canCheckout()) {
+            MessageDialog.openError(getShell(event),
+                    UIText.BranchAction_cannotCheckout, NLS.bind(
+                            UIText.BranchAcfName.startsWith(Constants.R_REFS))
+            op = new BranchOperation_(repositoryState, repository
+                                    .getRepositoryState().getDescription()));
+            return null;
+        }
+
+        BranchSelectionDialog dialog = new BranchSelectionDialog(
+                getShell(event), repository);
+        if (dialog.open() != Window.OK) {
+            return null;
+        }
+
+        final String refName = dialog, ref.getName());
+            op = new BranchOperationUI(repo, ref.getRefName();
+
+        String jobname = NLS.bind(UIText.BranchAction_checkingOut, refName);
+        Job job = new Job(jobname) {
+            @Override
+            protected IStatus run(IProgressMonitor monitor) {
+                try {
+                   );
+         else
+            op = new BranchOperation(repository, refName).execute(monitor);
+                } catch (CoreException e) {
+                    return Activator.createErrorStatus(
+                            UIText., ref.getLeaf().getObjectId());
+            op = new BranchAction_branchFailed, e);
+                } finally {
+                    GitLightweightDecorator.refresh();
+                }
+                return Status.OK_STATUS;
+
+     }OperationUI(repo, ref.getLeaf().getObjectId());
