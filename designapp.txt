@@ -1,0 +1,66 @@
+class GitContainerMapping extends GitObjectMapping {
+ 
+    private final GitModelObject[] children;
+    private GitModelObject[] children = null;
+ 
+     public GitContainerMapping(GitModelObjectContainer gitCommit) {
+         super(gitCommit);
+        children = gitCommit.getChildren();
+     }
+ 
+public GitContainerMapping(GitModelObjectContainer gitCommit) {
+         IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+         List<ResourceTraversal> result = new ArrayList<ResourceTraversal>();
+ 
+        if (children == null) {
+            children = ((GitModelObjectContainer)getModelObject()).getChildren();
+        }
+
+         for (GitModelObject child : children) {
+             ResourceTraversal traversal;
+             IPath location = child.getLocation()
+ResourceTraversal[] traversals = null;
+
+     protected GitRepositoryMapping(GitModelRepository gitRepo) {
+         super(gitRepo);
+         this.gitRepo = gitRepo;
+        for (GitModelObject obj : gitRepo.getChildren())
+            if (obj instanceof GitModelCommit || obj instanceof GitModelCache) {
+                RevCommit revCommit;
+                if (obj instanceof GitModelCommit)
+                    revCommit = ((GitModelCommit) obj).getBaseCommit();
+                else
+                    revCommit = ((GitModelCache) obj).getBaseCommit();
+        if (traversals == null) {
+            Repository repo = gitRepo.getRepository();
+            List<ResourceTraversal> result = new ArrayList<ResourceTraversal>();
+
+            for (GitModelObject obj : gitRepo.getChildren())
+                if (obj instanceof GitModelCommit || obj instanceof GitModelCache) {
+                    RevCommit revCommit;
+                    if (obj instanceof GitModelCommit)
+                        revCommit = ((GitModelCommit) obj).getBaseCommit();
+                    else
+                        revCommit = ((GitModelCache) obj).getBaseCommit();
+                    result.add(new GitTreeTraversal(repo, revCommit));import org.eclipse.jface.dialogs.MessageDialog;
+ import org.eclipse.jgit.api.Git;
+ import org.eclipse.jgit.api.RevertCommand;
+ import org.eclipse.jgit.lib.Repository;
+ public Object execute(ExecutionEvent event) throws ExecutionException {
+         try {
+             revert = git.revert().include(commit.getId());
+             newHead = revert.call();
+            if (newHead != null && revert.getRevertedRefs().isEmpty())
+                MessageDialog.openWarning(getPart(event).getSite().getShell(),
+                        UIText.RevertHandler_NoRevertTitle,
+                }
+ 
+                result.add(new GitTreeTraversal(repo, revCommit));
+            }
+            traversals = result.toArray(new ResourceTraversal[result.size()]);UIText.RevertHandler_AlreadyRevertedMessae);
+         } catch (Exception e) {
+        }
+ 
+        return result.toArray(new ResourceTravthrow new ExecutionException(UIText.RevertOperation_Intersnal[result.size()]);
+        return traversals;
+     }Error, e);
