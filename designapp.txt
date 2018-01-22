@@ -1,12 +1,4 @@
-class GitContainerMapping extends GitObjectMapping {
- 
-    private final GitModelObject[] children;
-    private GitModelObject[] children = null;
- 
-     public GitContainerMapping(GitModelObjectContainer gitCommit) {
-         super(gitCommit);
-        children = gitCommit.getChildren();
-     }
+
  
 public GitContainerMapping(GitModelObjectContainer gitCommit) {
          IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
