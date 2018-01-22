@@ -1,3 +1,49 @@
+import org.eclipse.jface.dialogs.MessageDialoggit.api.CherryPickCommand;
+ import org.eclipse.jgit.api.Git;
+ import org.eclipse.jgit.api.RevertCommand;
+ import org.eclipse.jgit.lib.Repository;
+
+public static String CherryPickHandler_NoCherryPickPerformedMessage;
+
+    /** */
+    public static String CherryPickHandler_NoCherryPickPerformedTitle;
+
+    /** */
+     public static String CherryPickOperation_Failed;
+ 
+     /** */
+     public static String RenameBranchCommand_WrongNameMessage;
+ 
+     /** */
+    public static String RevertHandler_AlreadyRevertedMessae;
+
+    /** */
+    public static String RevertHandler_NoRevertTitle;
+
+    /** */
+     public static String RevertOperation_Failed;
+ 
+     /** */
+lib.Repository;
+ public Object execute(ExecutionEvent event) throws ExecutionException {
+         try {
+             revert = git.revert    cherryPick = git.cherryPick().include(commit.getId());
+             newHead = revertcherryPick.call();
+            if (newHead != null && revert.getRevertedRefs().isEmpty())
+                MessageDialog.openWarning(getPart(event).getSite().getShell(),
+                        UIText.RevertHandler_NoRevertTitle,
+  } catch (Exception e) {
+            throw new ExecutionException(CoreText.CherryPickOperation_InternalError, e);
+            throw new ExecutionException(UIText.CherryPickOperation_InternalError, e);
+             }
+         UIText.RevertHandler_AlreadyRevertedMessae);
+         } catch (Exception e) {
+ if (newHead == null)
+            throw new ExecutionException(CoreText.CherryPickOperation_Failed);
+            throw new ExecutionException(UIText.RevertOperation_InternalError, e);
+         CherryPickOperation_Failed);
+         return null;
+     }
 import org.eclipse.jegit.api.CherryPickCommand;
  import org.eclipse.jgit.api.Gitui.internal.branch.BranchOperationUI;
  import org.eclipse.egit.ui.internal.repository.tree.RepositoryTreeNode;
