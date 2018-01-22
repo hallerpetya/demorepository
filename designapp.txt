@@ -18,31 +18,8 @@ public GitContainerMapping(GitModelObjectContainer gitCommit) {
 
          for (GitModelObject child : children) {
              ResourceTraversal traversal;
-             IPath location = child.getLocation()
-ResourceTraversal[] traversals = null;
-
-     protected GitRepositoryMapping(GitModelRepository gitRepo) {
-         super(gitRepo);
-         this.gitRepo = gitRepo;
-        for (GitModelObject obj : gitRepo.getChildren())
-            if (obj instanceof GitModelCommit || obj instanceof GitModelCache) {
-                RevCommit revCommit;
-                if (obj instanceof GitModelCommit)
-                    revCommit = ((GitModelCommit) obj).getBaseCommit();
-                else
-                    revCommit = ((GitModelCache) obj).getBaseCommit();
-        if (traversals == null) {
-            Repository repo = gitRepo.getRepository();
-            List<ResourceTraversal> result = new ArrayList<ResourceTraversal>();
-
-            for (GitModelObject obj : gitRepo.getChildren())
-                if (obj instanceof GitModelCommit || obj instanceof GitModelCache) {
-                    RevCommit revCommit;
-                    if (obj instanceof GitModelCommit)
-                        revCommit = ((GitModelCommit) obj).getBaseCommit();
-                    else
-                        revCommit = ((GitModelCache) obj).getBaseCommit();
-                    result.add(new GitTreeTraversal(repo, revCommit));import org.eclipse.jface.dialogs.MessageDialog;
+                    
+ import org.eclipse.jface.dialogs.MessageDialog;
  import org.eclipse.jgit.api.Git;
  import org.eclipse.jgit.api.RevertCommand;
  import org.eclipse.jgit.lib.Repository;
