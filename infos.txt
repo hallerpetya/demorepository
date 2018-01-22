@@ -1,7 +1,6 @@
 import org.eclipse.jface.dialogs.MessageDialoggit.api.CherryPickCommand;
  import org.eclipse.jgit.api.Git;
  import org.eclipse.jgit.api.RevertCommand;
- import org.eclipse.jgit.lib.Repository;
 
 public static String CherryPickHandler_NoCherryPickPerformedMessage;
 
